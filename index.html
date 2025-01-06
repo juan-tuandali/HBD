@@ -9,38 +9,38 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #f4f7f6; /* Soft pastel background */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0; /* Soft gray background */
+            font-family: 'Arial', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             flex-direction: column;
             overflow: hidden;
-            color: #333;
+            color: #333; /* Dark gray text */
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 700;
-            color: #ff7a99; /* Soft pink color */
-            letter-spacing: 2px;
-            animation: fadeInUp 2s ease-out;
+            color: #333; /* Dark text */
+            letter-spacing: 3px;
             opacity: 0;
+            animation: fadeInUp 2s ease-out forwards;
             animation-delay: 0.5s;
         }
 
         p {
-            font-size: 1.3rem;
-            color: #6a7f8c; /* Grayish blue color for the text */
+            font-size: 1.4rem;
+            color: #555; /* Medium gray text */
             margin-top: 20px;
             font-style: italic;
             opacity: 0;
-            animation: fadeInUp 2s ease-out;
+            animation: fadeInUp 2s ease-out forwards;
             animation-delay: 1s;
         }
 
-        /* Subtle Text Animation */
+        /* Text fade-in animation */
         @keyframes fadeInUp {
             to {
                 opacity: 1;
@@ -48,10 +48,10 @@
             }
         }
 
-        /* Floating Balloons */
+        /* Balloon Animations (Black & White) */
         .balloon {
             position: absolute;
-            font-size: 3rem;
+            font-size: 4rem;
             animation: float 8s ease-in-out infinite;
             opacity: 0;
             animation-delay: 2s;
@@ -72,7 +72,7 @@
             animation-delay: 4s;
         }
 
-        /* Animation for balloons */
+        /* Floating balloons effect */
         @keyframes float {
             0% {
                 transform: translateY(0);
@@ -87,11 +87,11 @@
             }
         }
 
-        /* Button Styling */
+        /* Button Styles */
         .cta-btn {
             margin-top: 40px;
             padding: 15px 30px;
-            background-color: #7fa5d8; /* Soft lavender color */
+            background-color: #333; /* Dark button */
             color: white;
             border: none;
             border-radius: 30px;
@@ -99,20 +99,20 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
             opacity: 0;
-            animation: fadeInUp 2s ease-out;
+            animation: fadeInUp 2s ease-out forwards;
             animation-delay: 1.5s;
         }
 
         .cta-btn:hover {
-            background-color: #5f88d0; /* Darker lavender on hover */
+            background-color: #555; /* Lighten the button on hover */
         }
 
-        /* Confetti Animation */
+        /* Minimalistic Confetti (Silver) */
         .confetti {
             position: absolute;
             width: 8px;
             height: 8px;
-            background-color: #f6c1c1; /* Light pink confetti */
+            background-color: #b3b3b3; /* Silver color for confetti */
             border-radius: 50%;
             animation: confettiFall 4s infinite ease-in;
         }
@@ -128,13 +128,13 @@
             }
         }
 
-        /* Create small circles and make them randomly fall */
+        /* Add random confetti falling with slight delay */
         .confetti:nth-child(odd) {
-            background-color: #9ad7d0; /* Mint green confetti */
+            background-color: #9c9c9c; /* Darker silver confetti */
         }
 
         .confetti:nth-child(even) {
-            background-color: #f5b7a1; /* Soft peach confetti */
+            background-color: #d0d0d0; /* Lighter silver confetti */
         }
     </style>
 </head>
