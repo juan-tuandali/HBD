@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +21,7 @@
             color: #333; /* Dark gray text */
             position: relative;
             text-align: center;
+            box-sizing: border-box;
         }
 
         /* Animations */
@@ -32,16 +34,16 @@
 
         /* Gift Box */
         .gift-box {
-            font-size: 10vw; /* Makes the gift box size relative to viewport width */
+            font-size: 15vw; /* Makes the gift box size relative to viewport width */
             opacity: 1;
             pointer-events: none; /* Disable clicking on the gift box */
         }
 
         /* "Click Me" Button */
         .click-me {
-            font-size: 1.5rem;
+            font-size: 2.5vw; /* Dynamic font size based on viewport */
             color: #333;
-            margin-top: 20px;
+            margin-top: 3vh;
             cursor: pointer;
             font-weight: 600;
         }
@@ -52,28 +54,29 @@
         }
 
         /* Hidden Birthday Message */
-        h1, p {
-            font-size: 6vw;
+        h1,
+        p {
+            font-size: 8vw; /* Larger text for mobile, scales down for larger screens */
             font-weight: 700;
             color: #333;
-            letter-spacing: 3px;
-            opacity: 0;  /* Initially hidden */
+            letter-spacing: 1px;
+            opacity: 0;
             position: absolute;
             transition: opacity 1s ease-out; /* Smooth fade-in transition */
         }
 
         p {
-            font-size: 2vw;
+            font-size: 4vw; /* Dynamic font size for smaller text */
             color: #555;
-            margin-top: 20px; /* Slight margin to give space between messages */
+            margin-top: 2vh; /* Slight margin to give space between messages */
             font-style: italic;
         }
 
         /* Confetti Styles */
         .confetti {
             position: absolute;
-            width: 3vw;
-            height: 3vw;
+            width: 5vw;
+            height: 5vw;
             background-color: red; /* Red balloons */
             border-radius: 50%;
             animation: confettiFall 4s infinite ease-in;
@@ -81,27 +84,64 @@
 
         @keyframes confettiFall {
             0% {
-                transform: translateY(-100vh); /* Start from top of the screen */
+                transform: translateY(-100vh);
                 opacity: 1;
             }
+
             100% {
-                transform: translateY(50vh); /* Fall only halfway down */
+                transform: translateY(50vh);
                 opacity: 0;
             }
         }
 
         /* To make random colors for confetti */
         .confetti:nth-child(odd) {
-            background-color: red; /* Red */
+            background-color: red;
         }
 
         .confetti:nth-child(even) {
-            background-color: darkred; /* Dark red */
+            background-color: darkred;
+        }
+
+        /* Media Queries for different screen sizes */
+        @media (max-width: 600px) {
+            .gift-box {
+                font-size: 30vw; /* Increase gift box size for smaller screens */
+            }
+
+            .click-me {
+                font-size: 5vw; /* Increase button size for smaller screens */
+            }
+
+            h1 {
+                font-size: 12vw; /* Make the heading bigger for small devices */
+            }
+
+            p {
+                font-size: 6vw; /* Make the second text smaller for small devices */
+            }
+
+            .confetti {
+                width: 8vw; /* Larger confetti size for smaller screens */
+                height: 8vw;
+            }
+        }
+
+        @media (max-width: 360px) {
+            h1 {
+                font-size: 15vw; /* Further scale down for very small screens */
+            }
+
+            p {
+                font-size: 8vw;
+            }
         }
 
     </style>
 </head>
+
 <body>
+
     <!-- Animated Gift Box -->
     <div class="gift-box">🎁</div>
 
@@ -146,5 +186,7 @@
             document.getElementById('clickMe').style.opacity = 0;
         }
     </script>
+
 </body>
+
 </html>
