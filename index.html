@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,20 +22,15 @@
             position: relative;
             text-align: center;
         }
-        /* Animations */
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
 
         /* Gift Box */
         .gift-box {
             font-size: 10vw; /* Makes the gift box size relative to viewport width */
             opacity: 1;
-            pointer-events: none; /* Disable clicking on the gift box */
+            pointer-events: all; /* Enable clicking on the gift box */
+            cursor: pointer;
         }
+
         /* "Click Me" Button */
         .click-me {
             font-size: 1.5rem;
@@ -42,23 +38,38 @@
             margin-top: 20px;
             cursor: pointer;
             font-weight: 600;
-
         }
+
         .click-me:hover {
             color: #000;
             text-decoration: underline;
         }
 
         /* Hidden Birthday Message */
-        h1, p {
+        h1,
+        p {
             font-size: 6vw;
             font-weight: 700;
             color: #333;
             letter-spacing: 3px;
-            opacity: 0;  /* Initially hidden */
+            opacity: 0; /* Initially hidden */
             position: absolute;
             transition: opacity 1s ease-out; /* Smooth fade-in transition */
         }
+
+        /* Zonk Message */
+        #zonkMessage {
+            font-size: 5vw;
+            font-weight: 700;
+            color: red;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100%);
+            transition: opacity 1s ease-out;
+        }
+
         /* Confetti Styles */
         .confetti {
             position: absolute;
@@ -68,37 +79,46 @@
             border-radius: 50%;
             animation: confettiFall 4s infinite ease-in;
         }
+
         @keyframes confettiFall {
             0% {
                 transform: translateY(-100vh); /* Start from top of the screen */
                 opacity: 1;
             }
+
             100% {
                 transform: translateY(50vh); /* Fall only halfway down */
                 opacity: 0;
             }
         }
+
         /* To make random colors for confetti */
         .confetti:nth-child(odd) {
             background-color: red; /* Red */
         }
+
         .confetti:nth-child(even) {
             background-color: darkred; /* Dark red */
         }
-    </style>
 
+    </style>
 </head>
+
 <body>
+
     <!-- Animated Gift Box -->
-    <div class="gift-box">🎁</div>
+    <div class="gift-box" id="giftBox">🎁</div>
 
     <!-- "Click Me" text -->
-    <div class="click-me" id="clickMe" onclick="showMessage()">Click Me</div>
-
+    <div class="click-me" id="clickMe" onclick="showMessage()">click me & Click the giftBox</div>
 
     <!-- Hidden Birthday Message -->
     <h1 id="birthdayMessage">hbd yona🙏🗿</h1>
     <p id="birthdayWish"></p>
+
+    <!-- Zonk Message (Initially Hidden) -->
+    <div id="zonkMessage">🗿🗿🗿🗿🗿</div>
+
     <!-- Confetti Elements: These will stay fixed at the top and fall down -->
     <div class="confetti" style="left: 10%; animation-delay: 0s;"></div>
     <div class="confetti" style="left: 25%; animation-delay: 0.5s;"></div>
@@ -111,11 +131,10 @@
 
         // JavaScript to show the message when clicking the "Click Me" button
         function showMessage() {
-
             // Get the birthday message and wish elements
             var message = document.getElementById('birthdayMessage');
             var wish = document.getElementById('birthdayWish');
-            
+
             // Show the message and wish by changing opacity to 1
             message.style.opacity = 1;
             wish.style.opacity = 1;
@@ -128,19 +147,28 @@
             wish.style.position = 'absolute';
             wish.style.left = '50%';
             wish.style.top = 'calc(50vh + 40px)';
-
             wish.style.transform = 'translateX(-50%)'; // Center horizontally
 
             // Hide the "Click Me" button after it's clicked
-
-
-
             document.getElementById('clickMe').style.opacity = 0;
-
-
         }
 
+        // JavaScript to show the "ZONK" message when the gift box is clicked
+        document.getElementById('giftBox').onclick = function () {
+            var zonkMessage = document.getElementById('zonkMessage');
+            var giftBox = document.getElementById('giftBox');
+
+            // Show the "ZONK" message
+            zonkMessage.style.opacity = 1;
+            zonkMessage.style.transform = 'translateX(-50%) translateY(-50%)'; // Center it vertically and horizontally
+
+            // Hide the gift box with transition
+            giftBox.style.opacity = 0;
+            giftBox.style.transition = 'opacity 1s ease-out'; // Add transition for smooth disappearing effect
+        };
+
     </script>
+
 </body>
 
 </html>
