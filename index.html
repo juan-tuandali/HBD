@@ -18,7 +18,6 @@
             flex-direction: column;
             overflow: hidden;
             color: #333; /* Dark gray text */
-            cursor: pointer;
             position: relative;
             text-align: center;
         }
@@ -31,26 +30,11 @@
             }
         }
 
-        /* Responsive Gift Box Animation */
+        /* Gift Box */
         .gift-box {
             font-size: 10vw; /* Makes the gift box size relative to viewport width */
-            animation: giftOpen 1s ease-out forwards;
             opacity: 1;
-            cursor: pointer;
-        }
-
-        @keyframes giftOpen {
-            0% {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.2);
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
+            pointer-events: none; /* Disable clicking on the gift box */
         }
 
         /* "Click Me" Button */
@@ -81,7 +65,7 @@
         p {
             font-size: 2vw;
             color: #555;
-            margin-top: 20px;
+            margin-top: 10px; /* Slight margin to give space between messages */
             font-style: italic;
         }
 
@@ -119,10 +103,10 @@
 </head>
 <body>
     <!-- Animated Gift Box -->
-    <div class="gift-box" id="giftBox" onclick="showMessage(event)">🎁</div>
+    <div class="gift-box">🎁</div>
 
     <!-- "Click Me" text -->
-    <div class="click-me" onclick="showMessage(event)">Click Me</div>
+    <div class="click-me" id="clickMe" onclick="showMessage()">Click Me</div>
 
     <!-- Hidden Birthday Message -->
     <h1 id="birthdayMessage">HBD yona :)</h1>
@@ -137,32 +121,29 @@
     <div class="confetti" style="left: 85%; animation-delay: 2.5s;"></div>
 
     <script>
-        // JavaScript to show the message when clicking the gift box or "Click Me"
-        function showMessage(event) {
+        // JavaScript to show the message when clicking the "Click Me" button
+        function showMessage() {
             // Get the birthday message and wish elements
             var message = document.getElementById('birthdayMessage');
             var wish = document.getElementById('birthdayWish');
-            var giftBox = document.getElementById('giftBox');
 
             // Show the message and wish by changing opacity to 1
             message.style.opacity = 1;
             wish.style.opacity = 1;
 
-            // Position the message based on the click position
+            // Position the message below the gift box
             message.style.position = 'absolute';
-            message.style.left = `${event.clientX - message.offsetWidth / 2}px`;
-            message.style.top = `${event.clientY - message.offsetHeight / 2 - 50}px`;  /* Adjusted distance from click */
-            
+            message.style.left = '50%';
+            message.style.top = 'calc(50vh - 30px)';
+            message.style.transform = 'translateX(-50%)'; // Center horizontally
+
             wish.style.position = 'absolute';
-            wish.style.left = `${event.clientX - wish.offsetWidth / 2}px`;
-            wish.style.top = `${event.clientY + message.offsetHeight / 2}px`;
+            wish.style.left = '50%';
+            wish.style.top = 'calc(50vh + 40px)';
+            wish.style.transform = 'translateX(-50%)'; // Center horizontally
 
-            // Hide the gift box and "Click Me" text once clicked
-            giftBox.style.opacity = 0;  // Hide the gift box after click
-            giftBox.style.pointerEvents = 'none';  // Disable clicking on gift box
-
-            // Hide the "Click Me" button
-            document.querySelector('.click-me').style.opacity = 0;
+            // Hide the "Click Me" button after it's clicked
+            document.getElementById('clickMe').style.opacity = 0;
         }
     </script>
 </body>
