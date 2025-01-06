@@ -68,6 +68,7 @@
             left: 50%;
             transform: translateX(-50%) translateY(-100%);
             transition: opacity 1s ease-out;
+            z-index: 10;
         }
 
         /* Confetti Styles */
@@ -142,11 +143,11 @@
             // Position the message below the gift box
             message.style.position = 'absolute';
             message.style.left = '50%';
-            message.style.top = 'calc(50vh - 30px)';
+            message.style.top = 'calc(50vh - 10vh)';  /* Dynamic positioning to avoid overlap */
             message.style.transform = 'translateX(-50%)'; // Center horizontally
             wish.style.position = 'absolute';
             wish.style.left = '50%';
-            wish.style.top = 'calc(50vh + 40px)';
+            wish.style.top = 'calc(50vh + 5vh)'; /* Dynamic positioning to avoid overlap */
             wish.style.transform = 'translateX(-50%)'; // Center horizontally
 
             // Hide the "Click Me" button after it's clicked
