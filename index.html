@@ -18,6 +18,7 @@
             flex-direction: column;
             overflow: hidden;
             color: #333; /* Dark gray text */
+            cursor: pointer;
         }
 
         h1 {
@@ -48,42 +49,24 @@
             }
         }
 
-        /* Balloon Animations (Black & White) */
-        .balloon {
-            position: absolute;
-            font-size: 4rem;
-            animation: float 8s ease-in-out infinite;
-            opacity: 0;
-            animation-delay: 2s;
+        /* Gift Box Animation */
+        .gift-box {
+            font-size: 5rem;
+            animation: giftOpen 1s ease-out forwards;
+            opacity: 1;
         }
 
-        .balloon:nth-child(1) {
-            left: 10%;
-            animation-delay: 1s;
-        }
-
-        .balloon:nth-child(2) {
-            left: 40%;
-            animation-delay: 3s;
-        }
-
-        .balloon:nth-child(3) {
-            left: 70%;
-            animation-delay: 4s;
-        }
-
-        /* Floating balloons effect */
-        @keyframes float {
+        @keyframes giftOpen {
             0% {
-                transform: translateY(0);
+                transform: scale(0.5);
+                opacity: 0;
             }
             50% {
-                transform: translateY(-200px);
-                transform: translateX(100px);
+                transform: scale(1.2);
             }
             100% {
-                transform: translateY(-400px);
-                transform: translateX(-100px);
+                transform: scale(1);
+                opacity: 1;
             }
         }
 
@@ -136,17 +119,16 @@
         .confetti:nth-child(even) {
             background-color: #d0d0d0; /* Lighter silver confetti */
         }
+
     </style>
 </head>
 <body>
+    <!-- Animated Gift Box -->
+    <div class="gift-box">🎁</div>
+
+    <!-- Hidden Birthday Message -->
     <h1>Happy Birthday Yona! :)</h1>
     <p>May your year be filled with happiness, success, and love!</p>
-    <button class="cta-btn" onclick="playMusic()">Click to Play Music!</button>
-
-    <!-- Floating Balloons -->
-    <div class="balloon">🎈</div>
-    <div class="balloon">🎈</div>
-    <div class="balloon">🎈</div>
 
     <!-- Confetti Elements -->
     <div class="confetti" style="left: 10%; animation-delay: 0s;"></div>
@@ -157,11 +139,15 @@
     <div class="confetti" style="left: 85%; animation-delay: 2.5s;"></div>
 
     <script>
-        // JavaScript to play background music when clicking the button
-        function playMusic() {
-            const audio = new Audio('https://www.soundjay.com/button/beep-07.wav'); // You can replace this URL with your own music file
-            audio.play();
-        }
+        // JavaScript to reveal the message on tap
+        document.body.addEventListener('click', function() {
+            // Fade in the birthday message and paragraph on click
+            document.querySelector('h1').style.opacity = 1;
+            document.querySelector('p').style.opacity = 1;
+
+            // Hide the gift box after the message appears
+            document.querySelector('.gift-box').style.opacity = 0;
+        });
 
         // Add random confetti on screen every few seconds
         setInterval(function() {
