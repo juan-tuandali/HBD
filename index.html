@@ -21,6 +21,7 @@
             color: #333; /* Dark gray text */
             position: relative;
             text-align: center;
+            width: 100%;
         }
 
         /* Gift Box */
@@ -29,15 +30,17 @@
             opacity: 1;
             pointer-events: all; /* Enable clicking on the gift box */
             cursor: pointer;
+            transition: font-size 0.5s ease;
         }
 
         /* "Click Me" Button */
         .click-me {
-            font-size: 1.5rem;
+            font-size: 2vw;
             color: #333;
-            margin-top: 20px;
+            margin-top: 2vh;
             cursor: pointer;
             font-weight: 600;
+            transition: font-size 0.3s ease;
         }
 
         .click-me:hover {
@@ -54,7 +57,7 @@
             letter-spacing: 3px;
             opacity: 0; /* Initially hidden */
             position: absolute;
-            transition: opacity 1s ease-out; /* Smooth fade-in transition */
+            transition: opacity 1s ease-out;
         }
 
         /* Zonk Message */
@@ -76,30 +79,29 @@
             position: absolute;
             width: 3vw;
             height: 3vw;
-            background-color: red; /* Red balloons */
+            background-color: red;
             border-radius: 50%;
             animation: confettiFall 4s infinite ease-in;
         }
 
         @keyframes confettiFall {
             0% {
-                transform: translateY(-100vh); /* Start from top of the screen */
+                transform: translateY(-100vh);
                 opacity: 1;
             }
 
             100% {
-                transform: translateY(50vh); /* Fall only halfway down */
+                transform: translateY(50vh);
                 opacity: 0;
             }
         }
 
-        /* To make random colors for confetti */
         .confetti:nth-child(odd) {
-            background-color: red; /* Red */
+            background-color: red;
         }
 
         .confetti:nth-child(even) {
-            background-color: darkred; /* Dark red */
+            background-color: darkred;
         }
 
     </style>
@@ -132,41 +134,40 @@
 
         // JavaScript to show the message when clicking the "Click Me" button
         function showMessage() {
-            // Get the birthday message and wish elements
             var message = document.getElementById('birthdayMessage');
             var wish = document.getElementById('birthdayWish');
 
-            // Show the message and wish by changing opacity to 1
             message.style.opacity = 1;
             wish.style.opacity = 1;
 
-            // Position the message below the gift box
             message.style.position = 'absolute';
             message.style.left = '50%';
-            message.style.top = 'calc(50vh - 30px)';
-            message.style.transform = 'translateX(-50%)'; // Center horizontally
+            message.style.top = 'calc(50vh - 15vh)';
+            message.style.transform = 'translateX(-50%)';
+
             wish.style.position = 'absolute';
             wish.style.left = '50%';
-            wish.style.top = 'calc(50vh + 40px)';
-            wish.style.transform = 'translateX(-50%)'; // Center horizontally
+            wish.style.top = 'calc(50vh + 5vh)';
+            wish.style.transform = 'translateX(-50%)';
 
-            // Hide the "Click Me" button after it's clicked
             document.getElementById('clickMe').style.opacity = 0;
         }
 
         // JavaScript to show the "ZONK" message when the gift box is clicked
-        document.getElementById('giftBox').onclick = function () {
+        function handleGiftBoxClick() {
             var zonkMessage = document.getElementById('zonkMessage');
             var giftBox = document.getElementById('giftBox');
 
-            // Show the "ZONK" message
             zonkMessage.style.opacity = 1;
-            zonkMessage.style.transform = 'translateX(-50%) translateY(-50%)'; // Center it vertically and horizontally
+            zonkMessage.style.transform = 'translateX(-50%) translateY(-50%)';
 
-            // Hide the gift box with transition
             giftBox.style.opacity = 0;
-            giftBox.style.transition = 'opacity 1s ease-out'; // Add transition for smooth disappearing effect
-        };
+            giftBox.style.transition = 'opacity 1s ease-out';
+        }
+
+        // Add both 'click' and 'touchstart' events to handle touch devices
+        document.getElementById('giftBox').addEventListener('click', handleGiftBoxClick);
+        document.getElementById('giftBox').addEventListener('touchstart', handleGiftBoxClick);
 
     </script>
 
