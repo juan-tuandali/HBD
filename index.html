@@ -1,189 +1,297 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Happy Birthday Yona! :)</title>
+
     <style>
+
         /* Global Styles */
+
         body {
+
             margin: 0;
+
             padding: 0;
+
             background-color: #f0f0f0; /* Soft gray background */
+
             font-family: 'Arial', sans-serif;
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
+
             height: 100vh;
+
             flex-direction: column;
+
             overflow: hidden;
-            color: #333;
+
+            color: #333; /* Dark gray text */
+
             position: relative;
+
             text-align: center;
-            box-sizing: border-box;
+
         }
+
+
+
+        /* Animations */
+
+        @keyframes fadeInUp {
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+
 
         /* Gift Box */
+
         .gift-box {
-            font-size: 15vw;
+
+            font-size: 10vw; /* Makes the gift box size relative to viewport width */
+
             opacity: 1;
+
             pointer-events: none; /* Disable clicking on the gift box */
-            margin-bottom: 2vh;
+
         }
+
+
 
         /* "Click Me" Button */
+
         .click-me {
-            font-size: 3vw;
+
+            font-size: 1.5rem;
+
             color: #333;
-            margin-top: 3vh;
+
+            margin-top: 20px;
+
             cursor: pointer;
+
             font-weight: 600;
+
         }
+
+
 
         .click-me:hover {
+
             color: #000;
+
             text-decoration: underline;
+
         }
+
+
 
         /* Hidden Birthday Message */
-        h1,
-        p {
+
+        h1, p {
+
             font-size: 6vw;
+
             font-weight: 700;
+
             color: #333;
+
             letter-spacing: 3px;
-            opacity: 0;
+
+            opacity: 0;  /* Initially hidden */
+
             position: absolute;
-            transition: opacity 1s ease-out;
-            white-space: nowrap; /* Ensure text doesn't break */
+
+            transition: opacity 1s ease-out; /* Smooth fade-in transition */
+
         }
 
+
+
         p {
-            font-size: 3.5vw;
+
+            font-size: 2vw;
+
             color: #555;
-            margin-top: 2vh; /* Margin between messages */
+
+            margin-top: 20px; /* Slight margin to give space between messages */
+
             font-style: italic;
-            white-space: nowrap; /* Prevent text wrapping */
+
         }
+
+
 
         /* Confetti Styles */
+
         .confetti {
+
             position: absolute;
-            width: 5vw;
-            height: 5vw;
-            background-color: red;
+
+            width: 3vw;
+
+            height: 3vw;
+
+            background-color: red; /* Red balloons */
+
             border-radius: 50%;
+
             animation: confettiFall 4s infinite ease-in;
+
         }
 
+
+
         @keyframes confettiFall {
+
             0% {
-                transform: translateY(-100vh);
+
+                transform: translateY(-100vh); /* Start from top of the screen */
+
                 opacity: 1;
+
             }
 
             100% {
-                transform: translateY(50vh);
+
+                transform: translateY(50vh); /* Fall only halfway down */
+
                 opacity: 0;
+
             }
+
         }
+
+
+
+        /* To make random colors for confetti */
 
         .confetti:nth-child(odd) {
-            background-color: red;
+
+            background-color: red; /* Red */
+
         }
+
+
 
         .confetti:nth-child(even) {
-            background-color: darkred;
+
+            background-color: darkred; /* Dark red */
+
         }
 
-        /* Media Queries for smaller screens */
-        @media (max-width: 600px) {
-            .gift-box {
-                font-size: 30vw;
-            }
 
-            .click-me {
-                font-size: 5vw;
-            }
-
-            h1 {
-                font-size: 10vw;
-            }
-
-            p {
-                font-size: 5vw;
-            }
-
-            .confetti {
-                width: 8vw;
-                height: 8vw;
-            }
-        }
-
-        /* Further adjustment for very small screens */
-        @media (max-width: 360px) {
-            h1 {
-                font-size: 12vw;
-            }
-
-            p {
-                font-size: 6vw;
-            }
-
-            .confetti {
-                width: 10vw;
-                height: 10vw;
-            }
-        }
 
     </style>
+
 </head>
 
 <body>
 
     <!-- Animated Gift Box -->
+
     <div class="gift-box">🎁</div>
 
+
+
     <!-- "Click Me" text -->
+
     <div class="click-me" id="clickMe" onclick="showMessage()">Click Me</div>
 
+
+
     <!-- Hidden Birthday Message -->
+
     <h1 id="birthdayMessage">hbd yona🙏😇</h1>
+
     <p id="birthdayWish">🗿🗿🗿</p>
 
+
+
     <!-- Confetti Elements: These will stay fixed at the top and fall down -->
+
     <div class="confetti" style="left: 10%; animation-delay: 0s;"></div>
+
     <div class="confetti" style="left: 25%; animation-delay: 0.5s;"></div>
+
     <div class="confetti" style="left: 40%; animation-delay: 1s;"></div>
+
     <div class="confetti" style="left: 55%; animation-delay: 1.5s;"></div>
+
     <div class="confetti" style="left: 70%; animation-delay: 2s;"></div>
+
     <div class="confetti" style="left: 85%; animation-delay: 2.5s;"></div>
 
+
+
     <script>
+
         // JavaScript to show the message when clicking the "Click Me" button
+
         function showMessage() {
+
+            // Get the birthday message and wish elements
+
             var message = document.getElementById('birthdayMessage');
+
             var wish = document.getElementById('birthdayWish');
 
+
+
             // Show the message and wish by changing opacity to 1
+
             message.style.opacity = 1;
+
             wish.style.opacity = 1;
 
+
+
             // Position the message below the gift box
+
             message.style.position = 'absolute';
+
             message.style.left = '50%';
+
             message.style.top = 'calc(50vh - 30px)';
-            message.style.transform = 'translateX(-50%)';
+
+            message.style.transform = 'translateX(-50%)'; // Center horizontally
+
+
 
             wish.style.position = 'absolute';
+
             wish.style.left = '50%';
+
             wish.style.top = 'calc(50vh + 40px)';
-            wish.style.transform = 'translateX(-50%)';
+
+            wish.style.transform = 'translateX(-50%)'; // Center horizontally
+
+
 
             // Hide the "Click Me" button after it's clicked
+
             document.getElementById('clickMe').style.opacity = 0;
+
         }
+
     </script>
 
 </body>
