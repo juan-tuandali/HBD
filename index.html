@@ -19,37 +19,10 @@
             overflow: hidden;
             color: #333; /* Dark gray text */
             cursor: pointer;
+            position: relative;
         }
 
-        h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            color: #333; /* Dark text */
-            letter-spacing: 3px;
-            opacity: 0;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            animation: fadeInUp 2s ease-out forwards;
-        }
-
-        p {
-            font-size: 1.4rem;
-            color: #555; /* Medium gray text */
-            margin-top: 20px;
-            font-style: italic;
-            opacity: 0;
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: fadeInUp 2s ease-out forwards;
-            animation-delay: 1s;
-        }
-
-        /* Text fade-in animation */
+        /* Animations */
         @keyframes fadeInUp {
             to {
                 opacity: 1;
@@ -57,9 +30,9 @@
             }
         }
 
-        /* Gift Box Animation */
+        /* Responsive Gift Box Animation */
         .gift-box {
-            font-size: 5rem;
+            font-size: 10vw; /* Makes the gift box size relative to viewport width */
             animation: giftOpen 1s ease-out forwards;
             opacity: 1;
             cursor: pointer;
@@ -79,12 +52,35 @@
             }
         }
 
-        /* Minimalistic Confetti (Silver) */
+        /* Hidden Birthday Message */
+        h1 {
+            font-size: 6vw;
+            font-weight: 700;
+            color: #333;
+            letter-spacing: 3px;
+            opacity: 0;
+            position: absolute;
+            text-align: center;
+            animation: fadeInUp 2s ease-out forwards;
+        }
+
+        p {
+            font-size: 2vw;
+            color: #555;
+            margin-top: 20px;
+            font-style: italic;
+            opacity: 0;
+            position: absolute;
+            animation: fadeInUp 2s ease-out forwards;
+            animation-delay: 1s;
+        }
+
+        /* Confetti Styles */
         .confetti {
             position: absolute;
-            width: 8px;
-            height: 8px;
-            background-color: #b3b3b3; /* Silver color for confetti */
+            width: 2vw;
+            height: 2vw;
+            background-color: #b3b3b3;
             border-radius: 50%;
             animation: confettiFall 4s infinite ease-in;
         }
@@ -100,24 +96,24 @@
             }
         }
 
-        /* Add random confetti falling with slight delay */
+        /* Create a silver color confetti for fun */
         .confetti:nth-child(odd) {
-            background-color: #9c9c9c; /* Darker silver confetti */
+            background-color: #9c9c9c;
         }
 
         .confetti:nth-child(even) {
-            background-color: #d0d0d0; /* Lighter silver confetti */
+            background-color: #d0d0d0;
         }
 
     </style>
 </head>
 <body>
     <!-- Animated Gift Box -->
-    <div class="gift-box" onclick="showMessage()">🎁</div>
+    <div class="gift-box" onclick="showMessage(event)">🎁</div>
 
     <!-- Hidden Birthday Message -->
     <h1 id="birthdayMessage">Happy Birthday Yona! :)</h1>
-    <p id="birthdayWish">May your year be filled with happiness, success, and love!</p>
+    <p id="birthdayWish">:))</p>
 
     <!-- Confetti Elements -->
     <div class="confetti" style="left: 10%; animation-delay: 0s;"></div>
@@ -129,7 +125,7 @@
 
     <script>
         // JavaScript to show the message when clicking the gift box
-        function showMessage() {
+        function showMessage(event) {
             // Get the birthday message and wish elements
             var message = document.getElementById('birthdayMessage');
             var wish = document.getElementById('birthdayWish');
