@@ -56,6 +56,7 @@
             opacity: 0; /* Initially hidden */
             position: absolute;
             transition: opacity 1s ease-out; /* Smooth fade-in transition */
+            margin: 0; /* Remove default margin */
         }
 
         /* Zonk Message */
@@ -69,6 +70,7 @@
             left: 50%;
             transform: translateX(-50%) translateY(-50%);
             transition: opacity 1s ease-out;
+            display: none; /* Hidden by default */
         }
 
         /* Emot Batu Styles */
@@ -91,8 +93,51 @@
         }
 
         /* Adjust the vertical spacing between Zonk and HBD message */
-        #birthdayMessage {
-            margin-top: 20px;
+        #birthdayMessage, #birthdayMessageYona {
+            position: relative;
+            margin-top: 10vh; /* Adjust spacing between Zonk and HBD message */
+        }
+
+        /* Styles for the download link */
+        #downloadLink {
+            font-size: 4vw; /* Make text responsive */
+            color: #333;
+            text-decoration: none; /* Remove underline */
+            font-weight: bold;
+            display: none; /* Hidden by default */
+            margin-top: 3vh; /* Add some margin-top between download link and HBD message */
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-bottom: 20%;
+        }
+
+        #downloadLink:hover {
+            background-color: #ff9900; /* Change color on hover */
+        }
+
+        /* Adjust the layout for very small devices */
+        @media (max-width: 600px) {
+            #zonkMessage {
+                font-size: 8vw; /* Increase font size on smaller devices */
+            }
+
+            #downloadLink {
+                font-size: 6vw; /* Make link text larger on small screens */
+                padding: 12px 24px;
+            }
+
+            h1 {
+                font-size: 8vw; /* Adjust size for small screens */
+            }
+        }
+
+        /* For larger screens (like desktop), keep the download link more spacious */
+        @media (min-width: 1200px) {
+            #downloadLink {
+                font-size: 2vw; /* Smaller text for large screens */
+            }
         }
 
     </style>
@@ -107,27 +152,34 @@
     <div class="click-me" id="clickMe" onclick="showZonkMessage()">click me</div>
 
     <!-- Hidden Birthday Message -->
-    <h1 id="birthdayMessage">hbd kaks firji🙏🗿</h1>
-    <p id="birthdayWish"></p>
+    <div id="birthdayMessageContainer">
+        <h1 id="birthdayMessage">hbd kaks firji🙏🗿</h1>
+        <h1 id="birthdayMessageYona">hbd yona🙏🗿</h1>
+    </div>
 
     <!-- Zonk Message (Initially Hidden) -->
-    <div id="zonkMessage">🫶🫶🫶</div>
+    <div id="zonkMessage">
+        <!-- Link will be revealed after click -->
+        <a id="downloadLink" href="https://drive.google.com/file/d/1yMKRw2IgP_Rn5tWTFhAp0i5alool2gNP/view?usp=sharing" target="_blank">
+            Gas donlot semoga bermanfaat (ini buat ko firji, yg yona ak kasi doa aja) 🗿
+        </a>
+    </div>
 
     <!-- Rock Elements: These will fall down like confetti -->
-    <div class="rock" style="left: 10%; animation-delay: 0s;">🫶</div>
-    <div class="rock" style="left: 25%; animation-delay: 0.5s;">🫶</div>
-    <div class="rock" style="left: 40%; animation-delay: 1s;">🫶</div>
-    <div class="rock" style="left: 55%; animation-delay: 1.5s;">🫶</div>
-    <div class="rock" style="left: 70%; animation-delay: 2s;">🫶</div>
-    <div class="rock" style="left: 85%; animation-delay: 2.5s;">🫶</div>
+    <div class="rock" style="left: 10%; animation-delay: 0s;">🙏</div>
+    <div class="rock" style="left: 25%; animation-delay: 0.5s;">🗿</div>
+    <div class="rock" style="left: 40%; animation-delay: 1.8s;">🙏</div>
+    <div class="rock" style="left: 55%; animation-delay: 1.5s;">🗿</div>
+    <div class="rock" style="left: 70%; animation-delay: 0.7s;">🙏</div>
+    <div class="rock" style="left: 85%; animation-delay: 2s;">🗿</div>
 
     <script>
-
         // Function to show "ZONK" message and hide gift box when "Click Me" is clicked
         function showZonkMessage() {
             // Show the "ZONK" message
             var zonkMessage = document.getElementById('zonkMessage');
             zonkMessage.style.opacity = 1;
+            zonkMessage.style.display = 'block';  // Show the zonk message
 
             // Hide the gift box with a smooth fade-out transition
             var giftBox = document.getElementById('giftBox');
@@ -138,21 +190,14 @@
 
             // Show the "HBD" message below "ZONK" and give it some vertical spacing
             var birthdayMessage = document.getElementById('birthdayMessage');
+            var birthdayMessageYona = document.getElementById('birthdayMessageYona');
             birthdayMessage.style.opacity = 1;
+            birthdayMessageYona.style.opacity = 1;
 
-            // Position "ZONK" and "HBD" message in the center with proper spacing
-            zonkMessage.style.position = 'absolute';
-            zonkMessage.style.left = '50%';
-            zonkMessage.style.top = '50%';
-            zonkMessage.style.transform = 'translateX(-50%) translateY(-50%)';
-
-            // Position "HBD" message below "ZONK" message
-            birthdayMessage.style.position = 'absolute';
-            birthdayMessage.style.left = '50%';
-            birthdayMessage.style.top = 'calc(50% + 70px)'; /* Adjust vertical spacing here */
-            birthdayMessage.style.transform = 'translateX(-50%)';
+            // Reveal the download link after clicking "Click Me"
+            var downloadLink = document.getElementById('downloadLink');
+            downloadLink.style.display = 'inline-block';
         }
-
     </script>
 
 </body>
