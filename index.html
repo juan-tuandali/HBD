@@ -72,6 +72,7 @@
             transform: translateX(-50%) translateY(-50%);
             transition: opacity 1s ease-out;
             display: none; /* Hidden by default */
+            z-index: 2; /* Ensure this is above other content */
         }
 
         /* Emot Batu Styles */
@@ -97,6 +98,7 @@
         #birthdayMessage, #birthdayMessageYona {
             position: relative;
             margin-top: 30vh; /* Adjust spacing between Zonk and HBD message */
+            z-index: 1; /* Keep this below the zonk message */
         }
 
         /* Styles for the download link */
@@ -114,6 +116,8 @@
             transition: background-color 0.3s;
             max-width: 80%; /* Prevent it from becoming too wide */
             box-sizing: border-box; /* Ensure padding doesn't overflow */
+            position: relative; /* Ensure proper placement */
+            z-index: 3; /* Make sure it appears above other elements */
         }
 
         #downloadLink:hover {
@@ -177,8 +181,8 @@
     <!-- Hidden Birthday Message -->
     <div id="birthdayMessageContainer">
         <h1 id="birthdayMessage">
-        hbd kaks firji🙏🗿
-        hbd yona🙏🗿
+            hbd kaks firji🙏🗿
+            hbd yona🙏🗿
         </h1>
     </div>
 
