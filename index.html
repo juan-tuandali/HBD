@@ -71,34 +71,23 @@
             transition: opacity 1s ease-out;
         }
 
-        /* Confetti Styles */
-        .confetti {
+        /* Emot Batu Styles */
+        .rock {
+            font-size: 3vw; /* Make the rock relative to the viewport width */
             position: absolute;
-            width: 3vw;
-            height: 3vw;
-            background-color: red;
-            border-radius: 50%;
-            animation: confettiFall 4s infinite ease-in;
+            animation: rockFall 4s infinite ease-in; /* Apply animation */
         }
 
-        @keyframes confettiFall {
+        @keyframes rockFall {
             0% {
-                transform: translateY(-100vh); /* Start from top of the screen */
+                transform: translateY(-100vh); /* Start from the top */
                 opacity: 1;
             }
 
             100% {
-                transform: translateY(50vh); /* Fall only halfway down */
+                transform: translateY(50vh); /* Stop at the middle of the screen */
                 opacity: 0;
             }
-        }
-
-        .confetti:nth-child(odd) {
-            background-color: red;
-        }
-
-        .confetti:nth-child(even) {
-            background-color: darkred;
         }
 
         /* Adjust the vertical spacing between Zonk and HBD message */
@@ -124,13 +113,13 @@
     <!-- Zonk Message (Initially Hidden) -->
     <div id="zonkMessage">🗿🗿🗿🗿🗿</div>
 
-    <!-- Confetti Elements: These will stay fixed at the top and fall down -->
-    <div class="confetti" style="left: 10%; animation-delay: 0s;"></div>
-    <div class="confetti" style="left: 25%; animation-delay: 0.5s;"></div>
-    <div class="confetti" style="left: 40%; animation-delay: 1s;"></div>
-    <div class="confetti" style="left: 55%; animation-delay: 1.5s;"></div>
-    <div class="confetti" style="left: 70%; animation-delay: 2s;"></div>
-    <div class="confetti" style="left: 85%; animation-delay: 2.5s;"></div>
+    <!-- Rock Elements: These will fall down like confetti -->
+    <div class="rock" style="left: 10%; animation-delay: 0s;">🗿</div>
+    <div class="rock" style="left: 25%; animation-delay: 0.5s;">🗿</div>
+    <div class="rock" style="left: 40%; animation-delay: 1s;">🗿</div>
+    <div class="rock" style="left: 55%; animation-delay: 1.5s;">🗿</div>
+    <div class="rock" style="left: 70%; animation-delay: 2s;">🗿</div>
+    <div class="rock" style="left: 85%; animation-delay: 2.5s;">🗿</div>
 
     <script>
 
