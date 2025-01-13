@@ -36,6 +36,7 @@
             font-size: 1.5rem;
             position: relative;
             overflow: hidden;
+            margin-bottom: 30px; /* Memberikan margin bawah untuk perangkat mobile */
         }
 
         /* Gaya teks surat */
@@ -45,7 +46,7 @@
             font-weight: bold;
             white-space: nowrap;
             position: absolute;
-            animation: slideRightToLeft 5s linear infinite; /* Mempercepat animasi */
+            animation: slideRightToLeft 10s linear infinite; /* Memperpanjang durasi animasi */
         }
 
         /* Keyframes animasi geser teks dari kanan ke kiri */
@@ -70,6 +71,7 @@
 
             .surat-text {
                 font-size: 1.2rem; /* Mengurangi ukuran font di perangkat kecil */
+                animation: slideRightToLeft 12s linear infinite; /* Memperpanjang durasi animasi di perangkat kecil */
             }
         }
 
@@ -81,6 +83,7 @@
 
             .surat-text {
                 font-size: 1rem; /* Mengurangi ukuran font lebih kecil */
+                animation: slideRightToLeft 15s linear infinite; /* Memperpanjang durasi animasi lebih lambat di ponsel kecil */
             }
         }
     </style>
