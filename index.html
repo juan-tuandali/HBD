@@ -37,6 +37,7 @@
             position: relative;
             overflow: hidden;
             margin-bottom: 30px; /* Memberikan margin bawah untuk perangkat mobile */
+            white-space: nowrap; /* Mencegah teks terpotong pada satu baris */
         }
 
         /* Gaya teks surat */
@@ -65,7 +66,7 @@
         /* Responsif untuk layar kecil */
         @media (max-width: 768px) {
             .surat-container {
-                padding: 20px;
+                padding: 30px 20px; /* Mengurangi padding agar lebih pas pada layar kecil */
                 font-size: 1rem;
             }
 
@@ -77,7 +78,7 @@
 
         @media (max-width: 480px) {
             .surat-container {
-                padding: 15px;
+                padding: 20px; /* Padding lebih kecil untuk ponsel */
                 font-size: 0.9rem;
             }
 
