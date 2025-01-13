@@ -38,6 +38,7 @@
             overflow: hidden;
             margin-bottom: 30px; /* Memberikan margin bawah untuk perangkat mobile */
             white-space: nowrap; /* Mencegah teks terpotong pada satu baris */
+            padding-bottom: 50px; /* Memberikan lebih banyak ruang di bawah untuk teks */
         }
 
         /* Gaya teks surat */
@@ -48,6 +49,7 @@
             white-space: nowrap;
             position: absolute;
             animation: slideRightToLeft 10s linear infinite; /* Memperpanjang durasi animasi */
+            line-height: 2; /* Menambahkan jarak antar baris */
         }
 
         /* Keyframes animasi geser teks dari kanan ke kiri */
@@ -68,6 +70,7 @@
             .surat-container {
                 padding: 30px 20px; /* Mengurangi padding agar lebih pas pada layar kecil */
                 font-size: 1rem;
+                padding-bottom: 40px; /* Mengurangi padding bawah agar teks tidak terpotong */
             }
 
             .surat-text {
@@ -80,6 +83,7 @@
             .surat-container {
                 padding: 20px; /* Padding lebih kecil untuk ponsel */
                 font-size: 0.9rem;
+                padding-bottom: 30px; /* Mengurangi padding bawah lebih kecil untuk ponsel */
             }
 
             .surat-text {
