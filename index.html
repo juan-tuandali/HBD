@@ -65,11 +65,245 @@
 <body>
 
     <div class="surat-container">
-        <h1>🙏🙏🙏</h1>
         <div class="surat-text">
             DENGAN INI SAYA MEMOHON MAAF KARENA SUDAH PULANG DULUAN DAN TINGGALKAN TEMAN TEMAN DAN KOKO KOKO
         </div>
     </div>
 
 </body>
+</html>
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🗿🗿🗿</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Soft gray background */
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            overflow: hidden;
+            color: #333; /* Dark gray text */
+            position: relative;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Gift Box */
+        .gift-box {
+            font-size: 15vw; /* Makes the gift box size responsive */
+            opacity: 1;
+            pointer-events: all; /* Enable clicking on the gift box */
+            cursor: pointer;
+            transition: opacity 1s ease-out; /* Smooth disappearing transition */
+        }
+
+        /* "Click Me" Button */
+        .click-me {
+            font-size: 2rem;
+            color: #333;
+            margin-top: 3vh; /* Adjust margin for better spacing */
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .click-me:hover {
+            color: #000;
+            text-decoration: underline;
+        }
+
+        /* Hidden Birthday Message */
+        h1,
+        p {
+            font-size: 6vw; /* Use relative units */
+            font-weight: 700;
+            color: #333;
+            letter-spacing: 3px;
+            opacity: 0; /* Initially hidden */
+            position: absolute;
+            transition: opacity 1s ease-out; /* Smooth fade-in transition */
+            margin: 0; /* Remove default margin */
+        }
+
+        /* Zonk Message */
+        #zonkMessage {
+            font-size: 5vw;
+            font-weight: 700;
+            color: red;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            transition: opacity 1s ease-out;
+            display: none; /* Hidden by default */
+            z-index: 2; /* Ensure this is above other content */
+        }
+
+        /* Emot Batu Styles */
+        .rock {
+            font-size: 5vw; /* Make the rock responsive */
+            position: absolute;
+            animation: rockFall 4s infinite ease-in; /* Apply animation */
+        }
+
+        @keyframes rockFall {
+            0% {
+                transform: translateY(-100vh); /* Start from the top */
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(50vh); /* Stop at the middle of the screen */
+                opacity: 0;
+            }
+        }
+
+        /* Adjust the vertical spacing between Zonk and HBD message */
+        #birthdayMessage, #birthdayMessageYona {
+            position: relative;
+            margin-top: 30vh; /* Adjust spacing between Zonk and HBD message */
+            z-index: 1; /* Keep this below the zonk message */
+        }
+
+        /* Styles for the download link */
+        #downloadLink {
+            font-size: 4vw; /* Make text responsive */
+            color: #333;
+            text-decoration: none; /* Remove underline */
+            font-weight: bold;
+            display: none; /* Hidden by default */
+            margin-top: 5vh; /* Adjust spacing */
+            margin-bottom: 5vh;
+            padding: 12px 24px;
+            background-color: #ffcc00;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            max-width: 80%; /* Prevent it from becoming too wide */
+            box-sizing: border-box; /* Ensure padding doesn't overflow */
+            position: relative; /* Ensure proper placement */
+            z-index: 3; /* Make sure it appears above other elements */
+        }
+
+        #downloadLink:hover {
+            background-color: #ff9900; /* Change color on hover */
+        }
+
+        /* Media Queries for Smaller Screens */
+        @media (max-width: 768px) {
+            .gift-box {
+                font-size: 20vw; /* Make the gift box larger on small screens */
+            }
+
+            .click-me {
+                font-size: 2.5rem; /* Make the "Click Me" text larger on small screens */
+            }
+
+            h1 {
+                font-size: 8vw; /* Adjust size for small screens */
+            }
+
+            #zonkMessage {
+                font-size: 8vw; /* Increase font size on smaller devices */
+            }
+
+            #downloadLink {
+                font-size: 5vw; /* Make link text larger on small screens */
+                padding: 15px 30px; /* Adjust padding for better touch targets */
+            }
+        }
+
+        /* For Larger Screens (like desktop) */
+        @media (min-width: 1200px) {
+            .gift-box {
+                font-size: 8vw; /* Smaller gift box on larger screens */
+            }
+
+            .click-me {
+                font-size: 1.5rem; /* Adjust text size for large screens */
+            }
+
+            h1 {
+                font-size: 4vw; /* Adjust size for large screens */
+            }
+
+            #downloadLink {
+                font-size: 2vw; /* Smaller text for large screens */
+                padding: 10px 20px; /* More compact padding */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Animated Gift Box -->
+    <div class="gift-box" id="giftBox">🎁</div>
+
+    <!-- "Click Me" text -->
+    <div class="click-me" id="clickMe" onclick="showZonkMessage()">click me</div>
+
+    <!-- Hidden Birthday Message -->
+    <div id="birthdayMessageContainer">
+        <h1 id="birthdayMessage">
+            hbd kaks firji🙏🗿<br>
+            hbd yona🙏🗿
+        </h1>
+    </div>
+
+    <!-- Zonk Message (Initially Hidden) -->
+    <div id="zonkMessage">
+        <!-- Link will be revealed after click -->
+        <a id="downloadLink" href="https://drive.google.com/file/d/1yMKRw2IgP_Rn5tWTFhAp0i5alool2gNP/view?usp=sharing" target="_blank">
+            Gas donlot (ini buat ko firji, yg yona ak kasi doa aja) 🗿
+        </a>
+    </div>
+
+    <!-- Rock Elements: These will fall down like confetti -->
+    <div class="rock" style="left: 10%; animation-delay: 0s;">🙏</div>
+    <div class="rock" style="left: 25%; animation-delay: 0.5s;">🗿</div>
+    <div class="rock" style="left: 40%; animation-delay: 1.8s;">🙏</div>
+    <div class="rock" style="left: 55%; animation-delay: 1.5s;">🗿</div>
+    <div class="rock" style="left: 70%; animation-delay: 0.7s;">🙏</div>
+    <div class="rock" style="left: 85%; animation-delay: 2s;">🗿</div>
+
+    <script>
+        // Function to show "ZONK" message and hide gift box when "Click Me" is clicked
+        function showZonkMessage() {
+            // Show the "ZONK" message
+            var zonkMessage = document.getElementById('zonkMessage');
+            zonkMessage.style.opacity = 1;
+            zonkMessage.style.display = 'block';  // Show the zonk message
+
+            // Hide the gift box with a smooth fade-out transition
+            var giftBox = document.getElementById('giftBox');
+            giftBox.style.opacity = 0;
+
+            // Hide the "Click Me" button
+            document.getElementById('clickMe').style.opacity = 0;
+
+            // Show the "HBD" message below "ZONK" and give it some vertical spacing
+            var birthdayMessage = document.getElementById('birthdayMessage');
+            birthdayMessage.style.opacity = 1;
+
+            // Reveal the download link after clicking "Click Me"
+            var downloadLink = document.getElementById('downloadLink');
+            downloadLink.style.display = 'inline-block';
+        }
+    </script>
+
+</body>
+
 </html>
